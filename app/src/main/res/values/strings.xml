@@ -5,4 +5,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="press_one_more_time_to_push_app_into_background">Press one more time to push app into background</string>
+    <string name="news_list">News List</string>
+    <string name="bookmarked_news">Bookmarked News</string>
+    <string name="filter">Filter</string>
+    <string name="sort_list_data">Sort List Data</string>
+    <string name="ascending_order">Ascending Order</string>
+    <string name="descending_order">Descending Order</string>
 </resources>

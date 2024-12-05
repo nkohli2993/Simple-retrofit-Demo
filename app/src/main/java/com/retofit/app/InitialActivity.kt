@@ -2,6 +2,7 @@ package com.retofit.app
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -21,6 +22,7 @@ class InitialActivity : BaseActivity() {
 
         navController?.navigate(R.id.listFragment)
         initDestinationChangeListener()
+        Log.d("TAG", "adding log for commit")
     }
     private fun initDestinationChangeListener() {
         navController?.addOnDestinationChangedListener { controller, destination, arguments ->

@@ -1,4 +1,4 @@
-#Local Pagination of data
+#Showing News List to User
 
 ## Getting Started
 This is a application which needs running on Android studio.

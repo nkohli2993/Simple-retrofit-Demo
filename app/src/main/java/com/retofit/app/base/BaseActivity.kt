@@ -2,8 +2,12 @@ package com.retofit.app.base
 
 
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.text.Spanned
@@ -15,7 +19,7 @@ import androidx.core.text.HtmlCompat
 import com.retofit.app.R
 
 abstract class BaseActivity : AppCompatActivity() {
-
+    public var isAPICalled = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initProgressLoader()
@@ -31,7 +35,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private var progressDialog: Dialog? = null
-
 
     fun showLoading(message: String? = getString(R.string.loading_please_wait)) {
         if (progressDialog == null) {
@@ -52,7 +55,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun returnValue(valueKey: String, key: String): String {
-        return "<font color='#000000'><b>$key:</b></font> ${valueKey}"
+        return "<font color='#24A872'><b>$key:</b></font> ${valueKey}"
     }
 
     private var exit: Boolean = false

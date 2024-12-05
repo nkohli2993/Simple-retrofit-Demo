@@ -3,14 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".new_list_detail.DetailFragment">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toolbar"
@@ -33,7 +28,7 @@
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="Detail"
+                android:text="@string/bookmarked_news"
                 android:textAppearance="@android:style/TextAppearance.WindowTitle"
                 android:textSize="@dimen/_14sdp"
                 android:visibility="visible"
@@ -44,20 +39,22 @@
                 tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/backIV"
+                android:id="@+id/backBookmarkIV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/_10sdp"
                 android:paddingHorizontal="@dimen/_10sdp"
                 android:src="@drawable/ic_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/idNestedSV"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:fillViewport="true"
             android:overScrollMode="never"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,69 +63,36 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingHorizontal="@dimen/_10sdp"
-                android:layout_height="wrap_content">
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_30sdp">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/idTxt"
-                    android:layout_width="0dp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listRl"
+                    android:layout_width="match_parent"
+                    android:paddingVertical="@dimen/_10sdp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:text="Id: 1"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="10"
+                    tools:listitem="@layout/adapter_data" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:indeterminateTint="@color/black"
+                    android:progressTint="@color/black"
                     android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/titleTxt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:text="title: 1"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idTxt" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/detailTxt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    app:layout_constraintEnd_toEndOf="@+id/titleTxt"
-                    app:layout_constraintStart_toStartOf="@+id/titleTxt"
-                    app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivNews"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:src="@drawable/ic_launcher_foreground"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/detailTxt" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/contentTxt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    app:layout_constraintEnd_toEndOf="@+id/titleTxt"
-                    app:layout_constraintStart_toStartOf="@+id/titleTxt"
-                    app:layout_constraintTop_toBottomOf="@+id/ivNews" />
-
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
